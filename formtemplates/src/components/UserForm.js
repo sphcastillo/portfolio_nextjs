@@ -35,7 +35,7 @@ export class UserForm extends Component {
     // take whatever the input is and set it to whatever the value is
     
     handleChange = input => e => {
-        this.setState({[input] : e.target.value});
+        this.setState({ [input] : e.target.value });
     }
 
     render() {
@@ -48,7 +48,7 @@ export class UserForm extends Component {
             case 1:
             return(
                 <FormUserDetails 
-                    netStep = {this.nextStep}
+                    nextStep = {this.nextStep}
                     handleChange = {this.handleChange}
                     values={values}
                 />

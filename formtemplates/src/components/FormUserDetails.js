@@ -24,14 +24,14 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-    function FormUserDetails(){
+    function FormUserDetails(props){
         
         const classes = useStyles();
-        const { values, handleChange } = this.props;
+        const { values, handleChange, nextStep } = props;
         
         const moveForward = e => {
             e.preventDefault();
-            this.props.nextStep();
+            nextStep();
         }
 
      
@@ -77,7 +77,12 @@ const useStyles = makeStyles((theme) => ({
                             
                         />
                     </div>
-                    <Button variant="outlined" color="secondary" className={classes.button}>
+                    <Button 
+                        variant="outlined" 
+                        color="secondary" 
+                        className={classes.button}
+                        onClick={moveForward}
+                    >
                         Continue
                     </Button>
                 </form> 

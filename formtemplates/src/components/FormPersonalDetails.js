@@ -24,10 +24,10 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-    function FormUserDetails(){
+    function FormUserDetails(props){
         
         const classes = useStyles();
-        const { values, handleChange} = this.props;
+        const { values, handleChange} = props;
         
         const moveForward = e => {
             e.preventDefault();

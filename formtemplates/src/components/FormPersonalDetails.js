@@ -27,50 +27,64 @@ const useStyles = makeStyles((theme) => ({
     function FormUserDetails(props){
         
         const classes = useStyles();
-        const { values, handleChange} = props;
+        const { values, handleChange, nextStep, prevStep} = props;
         
         const moveForward = e => {
             e.preventDefault();
-            this.props.nextStep();
+            nextStep();
         }
 
         const back = e => {
             e.preventDefault();
-            this.props.prevStep();
+            prevStep();
         }
 
         return (
             <div>
                 <AppBar position="static" className={classes.navBar}>
                     <Typography variant="h5" className={classes.title}>
-                    Enter User Details
+                    Enter Personal Details
                     </Typography>   
                 </AppBar>
                 <form className={classes.root} noValidate autoComplete="off">
                     <div>
                         <TextField
-                            id="password"
-                            label="Name"
-                            type="password"
+                            id="occupation"
+                            label="Enter Your Occupation"
+                            
                             onChange= {handleChange("occupation")}
                         />
                     </div>
                     <div>
                         <TextField
-                            id="password"
-                            label="Email"
-                            type="password"
+                            id="city"
+                            label="Enter Your City"
+    
                         />
                     </div>
                     <div>
                         <TextField
-                            id="password"
-                            label="Password"
-                            type="password"
+                            id="bio"
+                            label="Enter Your Bio"
+                            
                         />
                     </div>
-                    <Button variant="outlined" color="secondary" className={classes.button}>
-                        Continue
+                    <br />
+                    <Button 
+                        variant="outlined" 
+                        color="secondary" 
+                        className={classes.button}
+                        onClick={moveForward} 
+                    >
+                    Continue
+                    </Button>
+                    <Button 
+                        variant="outlined" 
+                        color="secondary" 
+                        className={classes.button}
+                        onClick={back}
+                    >
+                    Back
                     </Button>
                 </form> 
             </div>

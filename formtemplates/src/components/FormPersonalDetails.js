@@ -49,23 +49,37 @@ const useStyles = makeStyles((theme) => ({
                 <form className={classes.root} noValidate autoComplete="off">
                     <div>
                         <TextField
-                            id="occupation"
-                            label="Enter Your Occupation"
-                            
+                            name="occupation"
+                            type= "text"
+                            label= "Occupation"
+                            placeholder="Enter Your Occupation"
+                            onChange={getData}
+                            onChange={e => setUserDetails({...userDetails, occupation: e.target.value})} 
+                            value={userDetails.occupation}
                             onChange= {handleChange("occupation")}
                         />
                     </div>
                     <div>
                         <TextField
-                            id="city"
-                            label="Enter Your City"
+                            name="city"
+                            type= "text"
+                            label= "City"
+                            placeholder="Enter Your City"
+                            onChange={getData}
+                            onChange={e => setUserDetails({...userDetails, city: e.target.value})} 
+                            value={userDetails.city}
     
                         />
                     </div>
                     <div>
                         <TextField
-                            id="bio"
-                            label="Enter Your Bio"
+                            name="bio"
+                            type= "text"
+                            label= "Bio"
+                            placeholder="Enter Your Bio"
+                            onChange={getData}
+                            onChange={e => setUserDetails({...userDetails, bio: e.target.value})} 
+                            value={userDetails.bio}
                             
                         />
                     </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
@@ -27,9 +27,25 @@ const useStyles = makeStyles((theme) => ({
     function FormUserDetails(props){
         
         const classes = useStyles();
-        const { values, handleChange, nextStep } = props;
         
+        const { nextStep } = props;
+
+        const [userDetails, setUserDetails] = useState({
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: ""
+        })
+
+
+        function getData(val){
+            console.log(val.target.value)
+
+            
+        }
+ 
         const moveForward = e => {
+            console.log("Let's continue");
             e.preventDefault();
             nextStep();
         }
@@ -45,35 +61,47 @@ const useStyles = makeStyles((theme) => ({
                 <form className={classes.root} noValidate autoComplete="off">
                     <div>
                         <TextField
-                            id="firstName"
-                            label="Enter Your First Name"
-                            onChange= {handleChange("firstName")}
-                            defaultValue = {values.firstName}
+                            name="firstName"
+                            type= "text"
+                            label= "First Name"
+                            placeholder="Enter Your First Name"
+                            onChange={getData}
+                            onChange={e => setUserDetails({...userDetails, firstName: e.target.value})}
+                            value={userDetails.firstName}
                         />
                     </div>
                     <div>
                         <TextField
-                            id="lastName"
-                            label="Enter Your Last Name"
-                            onChange= {handleChange("lastName")}
-                            defaultValue = {values.lastName}
+                            name="lastName"
+                            type= "text"
+                            label= "Last Name"
+                            placeholder="Enter Your Last Name"
+                            onChange={getData}
+                            onChange={e => setUserDetails({...userDetails, lastName: e.target.value})} 
+                            value={userDetails.lastName}
+                            
                         />
                     </div>                    
                     <div>
                         <TextField
-                            id="email"
-                            label="Enter Your Email Address"
-                            onChange= {handleChange("email")}
-                            defaultValue = {values.email}
-                    
-                        />
+                            name="email"
+                            type= "text"
+                            label= "Email Address"
+                            placeholder="Enter Your Email Address"
+                            onChange={getData}
+                            onChange={e => setUserDetails({...userDetails, email: e.target.value})} 
+                            value={userDetails.email}
+                       />
                     </div>
                     <div>
                         <TextField
-                            id="password"
-                            label="Enter Your Password"
-                            onChange= {handleChange("password")}
-                            defaultValue = {values.password}
+                            name="password"
+                            type= "password"
+                            label= "Password"
+                            placeholder="Enter Your Password"
+                            onChange={getData}
+                            onChange={e => setUserDetails({...userDetails, password: e.target.value})} 
+                            value={userDetails.password}                            
                             
                         />
                     </div>

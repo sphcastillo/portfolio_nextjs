@@ -32,7 +32,9 @@ const useStyles = makeStyles((theme) => ({
     function FormUserDetails(props){
         
         const classes = useStyles();
-        const { values, nextStep, prevStep} = props;
+        const { nextStep, prevStep } = props;
+        const { firstName, lastName, email, password} = props;
+        
         
         const moveForward = e => {
             e.preventDefault();
@@ -54,7 +56,8 @@ const useStyles = makeStyles((theme) => ({
                 <div>
                     <List component="nav" aria-label="main mailbox folders">
                         <ListItem className={classes.li}>
-                            <ListItemText primary="First Name:" />
+                            <ListItemText primary="First Name:">{props.firstName}Hi</ListItemText>
+                            <div>Hi{props.firstName}</div>
                         </ListItem>
                         <ListItem className={classes.li}>
                             <ListItemText primary= "Last Name:" />

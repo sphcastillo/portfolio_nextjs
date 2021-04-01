@@ -53,9 +53,9 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "Occupation"
                             placeholder="Enter Your Occupation"
-                            onChange={getData}
-                            onChange={e => setUserDetails({...userDetails, occupation: e.target.value})} 
-                            value={userDetails.occupation}
+                            
+
+
                             onChange= {handleChange("occupation")}
                         />
                     </div>
@@ -65,9 +65,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "City"
                             placeholder="Enter Your City"
-                            onChange={getData}
-                            onChange={e => setUserDetails({...userDetails, city: e.target.value})} 
-                            value={userDetails.city}
+
     
                         />
                     </div>
@@ -77,9 +75,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "Bio"
                             placeholder="Enter Your Bio"
-                            onChange={getData}
-                            onChange={e => setUserDetails({...userDetails, bio: e.target.value})} 
-                            value={userDetails.bio}
+                            
                             
                         />
                     </div>

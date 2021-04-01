@@ -30,15 +30,18 @@ const useStyles = makeStyles((theme) => ({
         
         const { nextStep } = props;
 
-        const [userDetails, setUserDetails] = useState({
-            firstName: "",
-            lastName: "",
-            email: "",
-            password: ""
-        })
+        // const [userDetails, setUserDetails] = useState({
+        //     firstName: "",
+        //     lastName: "",
+        //     email: "",
+        //     password: ""
+        // })
+
+        const [userDetails, setUserDetails] = useState(null)
 
 
         function getData(val){
+            setUserDetails(val.target.value)
             console.log(val.target.value)
 
             
@@ -66,8 +69,6 @@ const useStyles = makeStyles((theme) => ({
                             label= "First Name"
                             placeholder="Enter Your First Name"
                             onChange={getData}
-                            onChange={e => setUserDetails({...userDetails, firstName: e.target.value})}
-                            value={userDetails.firstName}
                         />
                     </div>
                     <div>
@@ -77,8 +78,7 @@ const useStyles = makeStyles((theme) => ({
                             label= "Last Name"
                             placeholder="Enter Your Last Name"
                             onChange={getData}
-                            onChange={e => setUserDetails({...userDetails, lastName: e.target.value})} 
-                            value={userDetails.lastName}
+
                             
                         />
                     </div>                    
@@ -89,8 +89,7 @@ const useStyles = makeStyles((theme) => ({
                             label= "Email Address"
                             placeholder="Enter Your Email Address"
                             onChange={getData}
-                            onChange={e => setUserDetails({...userDetails, email: e.target.value})} 
-                            value={userDetails.email}
+
                        />
                     </div>
                     <div>
@@ -100,8 +99,7 @@ const useStyles = makeStyles((theme) => ({
                             label= "Password"
                             placeholder="Enter Your Password"
                             onChange={getData}
-                            onChange={e => setUserDetails({...userDetails, password: e.target.value})} 
-                            value={userDetails.password}                            
+                           
                             
                         />
                     </div>

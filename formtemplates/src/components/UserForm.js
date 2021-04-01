@@ -1,81 +1,72 @@
-import React, { Component } from "react";
+import React, { useState } from 'react';
 import FormUserDetails from "./FormUserDetails";
 import FormPersonalDetails from "./FormPersonalDetails";
 import Confirm from "./Confirm";
 import Success from "./Success";
 
+function UserForm() {
 
 
-export class UserForm extends Component {
-    state = {
+    const [userDetails, setUserDetails] = useState({
         step: 1,
         firstName: "",
         lastName: "",
         email: "",
+        password: "", 
         occupation: "",
         city: "",
         bio: ""
-    };
 
-    nextStep = () => {
-        const { step } = this.state;
-        this.setState({
-            step: step + 1
-        })
+    })
+
+    const [step, setStep] = useState();
+
+    const nextStep = () => {
+        console.log("Continue has been clicked");
+        setStep(step + 1);
+        
     }
 
-    prevStep = () => {
-        const { step } = this.state;
-        this.setState({
-            step: step - 1
-        })
+    const prevStep = () => {
+        console.log("Back has been clicked");
+        setStep(step - 1);
     }
 
-    handleChange = input => e => {
-
-        this.setState({ [input] : e.target.value });
-    }
-
-    render(){
-
-        const { step } = this.state;
-        const { firstName, lastName, email, occupation, city, bio } = this.state;
-        const values = { firstName, lastName, email, occupation, city, bio }
-
-        switch(step){
-            case 1:
-            return(
-                <FormUserDetails 
-                    nextStep = {this.nextStep}
-                    handleChange = {this.handleChange}
-                    values = {values}
-                />
-            )
-            case 2:
-            return(
-                <FormPersonalDetails 
-                    nextStep = {this.nextStep}
-                    prevStep = {this.prevStep}
-                    handleChange = {this.handleChange}
-                    values = {values}
-                />
-            )
-            case 3:
-            return(
-                <Confirm 
-                    nextStep = {this.nextStep}
-                    prevStep = {this.prevStep}
-                    values = {values}
-                />
-            )
-            case 4:
-            return(
-                <Success />
-            )
-        }
-
-    }
-
+    
+    return(
+        <div>
+            <h1>Does this work?</h1>
+            {(() => {
+                switch(step){
+                    case 1:
+                    return(
+                        <FormUserDetails 
+                            nextStep={nextStep}
+                            
+                        />
+                    )
+                    case 2:
+                    return(
+                        <FormPersonalDetails 
+                            nextStep={nextStep}
+                            prevStep={prevStep}
+                        />
+                    )    
+                    case 3:
+                    return(
+                        <Confirm 
+                            nextStep={nextStep}
+                            prevStep={prevStep}
+                        />
+                    )
+                    case 4:
+                    return(
+                        <Success />
+                    )    
+                }
+            })()}
+        </div>
+    )
 
 }
 

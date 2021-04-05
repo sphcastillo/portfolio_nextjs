@@ -19,7 +19,7 @@ function UserForm() {
 
     // })
 
-    const [step, setStep] = useState(0);
+    const [step, setStep] = useState(1);
 
     const nextStep = () => {
         console.log("Continue has been clicked");
@@ -58,9 +58,11 @@ function UserForm() {
         return(
             <Success />
         )    
+        default:
+        return(<></>)
     }
     
-    return(<></>)
+    
 }
 
 export default UserForm;

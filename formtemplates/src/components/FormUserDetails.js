@@ -30,23 +30,27 @@ const useStyles = makeStyles((theme) => ({
         
         const { nextStep } = props;
 
-        // const [userDetails, setUserDetails] = useState({
-        //     firstName: "",
-        //     lastName: "",
-        //     email: "",
-        //     password: ""
-        // })
+        const [userDetails, setUserDetails] = useState({
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: ""
+        })
 
-        const [userDetails, setUserDetails] = useState(null)
+        // const [firstName, setFirstName] = useState("");
+        // const [lastName, setLastName] = useState("");
+        // const [email, setEmail] = useState("");
+        // const [password, setPassword]= useState("");
+
+        // const [userDetails, setUserDetails] = useState(null)
 
 
         function getData(val){
-            setUserDetails(val.target.value)
-            console.log(val.target.value)
-
+            setUserDetails(val.target.value);
+            console.log(val.target.value);
             
         }
- 
+
         const moveForward = e => {
             console.log("Let's continue");
             e.preventDefault();

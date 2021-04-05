@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
@@ -27,7 +27,18 @@ const useStyles = makeStyles((theme) => ({
     function FormUserDetails(props){
         
         const classes = useStyles();
-        const { values, handleChange, nextStep, prevStep} = props;
+        const {  nextStep, prevStep} = props;
+
+        const [userDetails, setUserDetails] = useState(null)
+
+
+        function getData(val){
+            setUserDetails(val.target.value);
+            console.log(val.target.value);
+
+            
+        }
+ 
         
         const moveForward = e => {
             e.preventDefault();
@@ -53,10 +64,8 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "Occupation"
                             placeholder="Enter Your Occupation"
-                            
-
-
-                            onChange= {handleChange("occupation")}
+                            onChange={getData}
+                        
                         />
                     </div>
                     <div>
@@ -65,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "City"
                             placeholder="Enter Your City"
-
+                            onChange={getData}
     
                         />
                     </div>
@@ -75,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "Bio"
                             placeholder="Enter Your Bio"
-                            
+                            onChange={getData}
                             
                         />
                     </div>

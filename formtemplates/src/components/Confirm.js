@@ -56,11 +56,11 @@ const useStyles = makeStyles((theme) => ({
                 <div>
                     <List component="nav" aria-label="main mailbox folders">
                         <ListItem className={classes.li}>
-                            <ListItemText primary="First Name:">{props.firstName}</ListItemText>
+                            <ListItemText primary="First Name:"></ListItemText>
                             
                         </ListItem>
                         <ListItem className={classes.li}>
-                            <ListItemText primary= "Last Name:" /> 
+                            <ListItemText primary= "Last Name:"></ListItemText> 
                         </ListItem>
                         <ListItem className={classes.li}>
                             <ListItemText primary="email:" />

@@ -7,18 +7,6 @@ import Success from "./Success";
 function UserForm() {
 
 
-    // const [userDetails, setUserDetails] = useState({
-    //     step: 1,
-    //     firstName: "",
-    //     lastName: "",
-    //     email: "",
-    //     password: "", 
-    //     occupation: "",
-    //     city: "",
-    //     bio: ""
-
-    // })
-
     const [step, setStep] = useState(1);
 
     const nextStep = () => {
@@ -32,11 +20,14 @@ function UserForm() {
         setStep(step - 1);
     }
 
+
+
     switch(step){
         case 1:
         return(
             <FormUserDetails 
                 nextStep={nextStep}
+                
                 
             />
         )

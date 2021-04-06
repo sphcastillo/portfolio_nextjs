@@ -30,26 +30,32 @@ const useStyles = makeStyles((theme) => ({
         
         const { nextStep } = props;
 
-        const [userDetails, setUserDetails] = useState({
-            firstName: "",
-            lastName: "",
-            email: "",
-            password: ""
-        })
+        // const [userDetails, setUserDetails] = useState({
+        //     firstName: "",
+        //     lastName: "",
+        //     email: "",
+        //     password: ""
+        // })
 
-        // const [firstName, setFirstName] = useState("");
-        // const [lastName, setLastName] = useState("");
-        // const [email, setEmail] = useState("");
-        // const [password, setPassword]= useState("");
+        const [firstName, setFirstName] = useState();
+        const [lastName, setLastName] = useState();
+        const [email, setEmail] = useState();
+        const [password, setPassword]= useState();
 
-        // const [userDetails, setUserDetails] = useState(null)
-
-
-        function getData(val){
-            setUserDetails(val.target.value);
-            console.log(val.target.value);
-            
+        const handleSubmit = e => {
+            e.preventDefault();
+            console.log("first name: " + firstName)
+            console.log("last name: " + lastName)
+            console.log("email address: " + email)
+            console.log("password: " + password)
+            nextStep();
         }
+
+        // function getData(val){
+        //     setUserDetails(val.target.value);
+        //     console.log(val.target.value);
+            
+        // }
 
         const moveForward = e => {
             console.log("Let's continue");
@@ -65,6 +71,12 @@ const useStyles = makeStyles((theme) => ({
                     Enter User Details
                     </Typography>   
                 </AppBar>
+                <div>
+                    <h2>Hello {firstName}</h2>
+                    <h3>Your last name is {lastName}.</h3>
+                    <h4>Your email is {email}.</h4>
+                    <h5>And we won't tell anyone your password is {password}</h5>
+                </div>
                 <form className={classes.root} noValidate autoComplete="off">
                     <div>
                         <TextField
@@ -72,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "First Name"
                             placeholder="Enter Your First Name"
-                            onChange={getData}
+                            onChange={e => setFirstName(e.target.value)}
                         />
                     </div>
                     <div>
@@ -81,7 +93,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "Last Name"
                             placeholder="Enter Your Last Name"
-                            onChange={getData}
+                            onChange={e => setLastName(e.target.value)}
 
                             
                         />
@@ -92,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "Email Address"
                             placeholder="Enter Your Email Address"
-                            onChange={getData}
+                            onChange={e => setEmail(e.target.value)}
 
                        />
                     </div>
@@ -102,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "password"
                             label= "Password"
                             placeholder="Enter Your Password"
-                            onChange={getData}
+                            onChange={e => setPassword(e.target.value)}
                            
                             
                         />
@@ -111,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
                         variant="outlined" 
                         color="secondary" 
                         className={classes.button}
-                        onClick={moveForward}
+                        onClick={handleSubmit}
                     >
                         Continue
                     </Button>

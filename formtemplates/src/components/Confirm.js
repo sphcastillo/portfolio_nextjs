@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
         const classes = useStyles();
         const { nextStep, prevStep } = props;
         const { firstName, lastName, email, password} = props;
+        const { setFirstName, setLastName, setEmail, setPassword } = props;
         
         
         const moveForward = e => {
@@ -56,17 +57,18 @@ const useStyles = makeStyles((theme) => ({
                 <div>
                     <List component="nav" aria-label="main mailbox folders">
                         <ListItem className={classes.li}>
-                            <ListItemText primary="First Name:"></ListItemText>
+                            <ListItemText primary={`First Name: ${firstName}`}>
+                            </ListItemText>
                             
                         </ListItem>
                         <ListItem className={classes.li}>
-                            <ListItemText primary= "Last Name:"></ListItemText> 
+                            <ListItemText primary={`Last Name: ${setLastName}`}></ListItemText> 
                         </ListItem>
                         <ListItem className={classes.li}>
-                            <ListItemText primary="email:" />
+                            <ListItemText primary={`Email: ${setEmail}`} />
                         </ListItem>
                         <ListItem className={classes.li}>
-                            <ListItemText primary="password:"/>
+                            <ListItemText primary={`Password: ${setPassword}`}/>
                         </ListItem>
                         <ListItem className={classes.li}>
                             <ListItemText primary="occupation:" />

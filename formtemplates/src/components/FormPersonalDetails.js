@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
         const classes = useStyles();
         const {  nextStep, prevStep} = props;
 
+        const { firstName, lastName, email, password} = props;
+        const { setFirstName, setLastName, setEmail, setPassword } = props;
+        
+
         const [userDetails, setUserDetails] = useState(null)
 
 

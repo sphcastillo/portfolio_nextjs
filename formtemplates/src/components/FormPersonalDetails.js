@@ -28,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
         
         const classes = useStyles();
         const {  nextStep, prevStep } = props;
+        const { firstName, lastName, email, password } = props;
+        const { setFirstName, setLastName, setEmail, setPassword} = props;
 
         const [occupation, setOccupation] = useState();
         const [city, setCity] = useState();
@@ -55,6 +57,11 @@ const useStyles = makeStyles((theme) => ({
                     Enter Personal Details
                     </Typography>   
                 </AppBar>
+                <div>
+                    <h2>{firstName} is a {occupation}.</h2>
+                    <h3>{setFirstName} lives in {city}.</h3>
+                    <h4>This is what I know about {firstName}: {bio}</h4>
+                </div>
                 <form className={classes.root} noValidate autoComplete="off">
                     <div>
                         <TextField

@@ -30,12 +30,6 @@ const useStyles = makeStyles((theme) => ({
         
         const { nextStep } = props;
 
-        // const [userDetails, setUserDetails] = useState({
-        //     firstName: "",
-        //     lastName: "",
-        //     email: "",
-        //     password: ""
-        // })
 
         const [firstName, setFirstName] = useState();
         const [lastName, setLastName] = useState();
@@ -44,22 +38,10 @@ const useStyles = makeStyles((theme) => ({
 
         const handleSubmit = e => {
             e.preventDefault();
-            console.log("first name: " + firstName)
-            console.log("last name: " + lastName)
-            console.log("email address: " + email)
-            console.log("password: " + password)
-            nextStep();
-        }
-
-        // function getData(val){
-        //     setUserDetails(val.target.value);
-        //     console.log(val.target.value);
-            
-        // }
-
-        const moveForward = e => {
-            console.log("Let's continue");
-            e.preventDefault();
+            console.log("first name: " + firstName);
+            console.log("last name: " + lastName);
+            console.log("email address: " + email);
+            console.log("password: " + password);
             nextStep();
         }
 

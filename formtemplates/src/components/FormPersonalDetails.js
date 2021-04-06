@@ -24,32 +24,26 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-    function FormUserDetails(props){
+    function FormPersonalDetails(props){
         
         const classes = useStyles();
-        const {  nextStep, prevStep} = props;
+        const {  nextStep, prevStep } = props;
 
-        const { firstName, lastName, email, password} = props;
-        const { setFirstName, setLastName, setEmail, setPassword } = props;
-        
-
-        const [userDetails, setUserDetails] = useState(null)
+        const [occupation, setOccupation] = useState();
+        const [city, setCity] = useState();
+        const [bio, setBio] = useState();
 
 
-        function getData(val){
-            setUserDetails(val.target.value);
-            console.log(val.target.value);
-
-            
-        }
- 
-        
         const moveForward = e => {
             e.preventDefault();
+            console.log("occupation: " + occupation);
+            console.log("city: " + city);
+            console.log("bio: " + bio);
             nextStep();
         }
 
-        const back = e => {
+
+        const backButton = e => {
             e.preventDefault();
             prevStep();
         }
@@ -68,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "Occupation"
                             placeholder="Enter Your Occupation"
-                            onChange={getData}
+                            onChange={e => setOccupation(e.target.value)}
                         
                         />
                     </div>
@@ -78,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "City"
                             placeholder="Enter Your City"
-                            onChange={getData}
+                            onChange={e => setCity(e.target.value)}
     
                         />
                     </div>
@@ -88,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "Bio"
                             placeholder="Enter Your Bio"
-                            onChange={getData}
+                            onChange={e => setBio(e.target.value)}
                             
                         />
                     </div>
@@ -105,7 +99,7 @@ const useStyles = makeStyles((theme) => ({
                         variant="outlined" 
                         color="secondary" 
                         className={classes.button}
-                        onClick={back}
+                        onClick={backButton}
                     >
                     Back
                     </Button>
@@ -119,4 +113,4 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default FormUserDetails;
+export default FormPersonalDetails;

@@ -28,20 +28,18 @@ const useStyles = makeStyles((theme) => ({
         
         const classes = useStyles();
         
-        const { nextStep } = props;
+        const { nextStep, setForm, form } = props;
 
-
-        const [firstName, setFirstName] = useState();
-        const [lastName, setLastName] = useState();
-        const [email, setEmail] = useState();
-        const [password, setPassword]= useState();
+const setDetails = ({target:{value, name}}) => {
+    setForm({...form, [name]: value});
+}
 
         const handleSubmit = e => {
             e.preventDefault();
-            console.log("first name: " + firstName);
-            console.log("last name: " + lastName);
-            console.log("email address: " + email);
-            console.log("password: " + password);
+            console.log("first name: " + form.firstName);
+            console.log("last name: " + form.lastName);
+            console.log("email address: " + form.email);
+            console.log("password: " + form.password);
             nextStep();
         }
 
@@ -54,10 +52,10 @@ const useStyles = makeStyles((theme) => ({
                     </Typography>   
                 </AppBar>
                 <div>
-                    <h2>Hello {firstName}</h2>
-                    <h3>Your last name is {lastName}.</h3>
-                    <h4>Your email is {email}.</h4>
-                    <h5>And we won't tell anyone your password is {password}</h5>
+                    <h2>Hello {form.firstName}</h2>
+                    <h3>Your last name is {form.lastName}.</h3>
+                    <h4>Your email is {form.email}.</h4>
+                    <h5>And we won't tell anyone your password is {form.password}</h5>
                 </div>
                 <form className={classes.root} noValidate autoComplete="off">
                     <div>
@@ -65,8 +63,8 @@ const useStyles = makeStyles((theme) => ({
                             name="firstName"
                             type= "text"
                             label= "First Name"
-                            placeholder="Enter Your First Name"
-                            onChange={e => setFirstName(e.target.value)}
+                            defaultValue={form.firstName || "Enter Your First Name"}
+                            onChange={setDetails}
                         />
                     </div>
                     <div>
@@ -74,8 +72,8 @@ const useStyles = makeStyles((theme) => ({
                             name="lastName"
                             type= "text"
                             label= "Last Name"
-                            placeholder="Enter Your Last Name"
-                            onChange={e => setLastName(e.target.value)}
+                            placeholder={form.lastName || "Enter Your Last Name"}
+                            onChange={setDetails}
 
                             
                         />
@@ -85,8 +83,8 @@ const useStyles = makeStyles((theme) => ({
                             name="email"
                             type= "text"
                             label= "Email Address"
-                            placeholder="Enter Your Email Address"
-                            onChange={e => setEmail(e.target.value)}
+                            placeholder={form.email || "Enter Your Email Address"}
+                            onChange={setDetails}
 
                        />
                     </div>
@@ -95,8 +93,8 @@ const useStyles = makeStyles((theme) => ({
                             name="password"
                             type= "password"
                             label= "Password"
-                            placeholder="Enter Your Password"
-                            onChange={e => setPassword(e.target.value)}
+                            placeholder={form.password || "Enter Your Password"}
+                            onChange={setDetails}
                            
                             
                         />

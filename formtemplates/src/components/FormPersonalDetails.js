@@ -27,20 +27,18 @@ const useStyles = makeStyles((theme) => ({
     function FormPersonalDetails(props){
         
         const classes = useStyles();
-        const {  nextStep, prevStep } = props;
-        const { firstName, lastName, email, password } = props;
-        const { setFirstName, setLastName, setEmail, setPassword} = props;
+        const {  nextStep, prevStep, form, details, setForm } = props;
 
-        const [occupation, setOccupation] = useState();
-        const [city, setCity] = useState();
-        const [bio, setBio] = useState();
-
+        const setUserDetails = ({target:{value, name}}) => {
+            setForm({...form, [name]: value});
+        }
+        
 
         const moveForward = e => {
             e.preventDefault();
-            console.log("occupation: " + occupation);
-            console.log("city: " + city);
-            console.log("bio: " + bio);
+            console.log("occupation: " + form.occupation);
+            console.log("city: " + form.city);
+            console.log("bio: " + form.bio);
             nextStep();
         }
 
@@ -57,11 +55,7 @@ const useStyles = makeStyles((theme) => ({
                     Enter Personal Details
                     </Typography>   
                 </AppBar>
-                <div>
-                    <h2>{firstName} is a {occupation}.</h2>
-                    <h3>{setFirstName} lives in {city}.</h3>
-                    <h4>This is what I know about {firstName}: {bio}</h4>
-                </div>
+
                 <form className={classes.root} noValidate autoComplete="off">
                     <div>
                         <TextField
@@ -69,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "Occupation"
                             placeholder="Enter Your Occupation"
-                            onChange={e => setOccupation(e.target.value)}
+                            onChange={setUserDetails}
                         
                         />
                     </div>
@@ -79,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
                             type= "text"
                             label= "City"
                             placeholder="Enter Your City"
-                            onChange={e => setCity(e.target.value)}
+                            onChange={setUserDetails}
     
                         />
                     </div>
@@ -88,8 +82,8 @@ const useStyles = makeStyles((theme) => ({
                             name="bio"
                             type= "text"
                             label= "Bio"
-                            placeholder="Enter Your Bio"
-                            onChange={e => setBio(e.target.value)}
+                            defaultValue={form.bio || "Enter Your Bio"}
+                            onChange={setUserDetails}
                             
                         />
                     </div>

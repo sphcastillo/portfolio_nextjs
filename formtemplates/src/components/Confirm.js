@@ -32,10 +32,8 @@ const useStyles = makeStyles((theme) => ({
     function FormUserDetails(props){
         
         const classes = useStyles();
-        const { nextStep, prevStep } = props;
-        const { firstName, lastName, email, password} = props;
-        const { setFirstName, setLastName, setEmail, setPassword } = props;
-        
+        const { nextStep, prevStep, personalData, details } = props;
+
         
         const moveForward = e => {
             e.preventDefault();
@@ -57,27 +55,27 @@ const useStyles = makeStyles((theme) => ({
                 <div>
                     <List component="nav" aria-label="main mailbox folders">
                         <ListItem className={classes.li}>
-                            <ListItemText primary={`First Name: ${firstName}`}>
+                            <ListItemText primary={`First Name: ${personalData.firstName}`}>
                             </ListItemText>
                             
                         </ListItem>
                         <ListItem className={classes.li}>
-                            <ListItemText primary={`Last Name: ${setLastName}`}></ListItemText> 
+                            <ListItemText primary={`Last Name: ${personalData.lastName}`}></ListItemText> 
                         </ListItem>
                         <ListItem className={classes.li}>
-                            <ListItemText primary={`Email: ${setEmail}`} />
+                            <ListItemText primary={`Email: ${personalData.email}`} />
                         </ListItem>
                         <ListItem className={classes.li}>
-                            <ListItemText primary={`Password: ${setPassword}`}/>
+                            <ListItemText primary={`Password: ${personalData.password}`}/>
                         </ListItem>
                         <ListItem className={classes.li}>
-                            <ListItemText primary="occupation:" />
+                            <ListItemText primary={`Occupation: ${details.occupation}`}/>
                         </ListItem>
                         <ListItem className={classes.li}>
-                            <ListItemText primary="city:"/>
+                            <ListItemText primary={`City: ${details.city}`}/>
                         </ListItem>                    
                         <ListItem className={classes.li}>
-                            <ListItemText primary="bio:"/>
+                            <ListItemText primary={`Bio: ${details.bio}`}/>
                         </ListItem>                      
                         <br />
                         <Button 

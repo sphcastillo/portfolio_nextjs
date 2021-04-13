@@ -6,6 +6,18 @@ import Success from "./Success";
 
 function UserForm() {
 
+    const [detailForm, setDetailForm] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: ''
+    });
+    const [personalForm, setPersonalForm] = useState({
+        occupation: '',
+        city: '',
+        bio: ''
+    });
+
 
     const [step, setStep] = useState(1);
 
@@ -27,7 +39,8 @@ function UserForm() {
         return(
             <FormUserDetails 
                 nextStep={nextStep}
-                
+                form={detailForm}
+                setForm={setDetailForm}
                 
             />
         )
@@ -36,11 +49,16 @@ function UserForm() {
             <FormPersonalDetails 
                 nextStep={nextStep}
                 prevStep={prevStep}
+                form={personalForm}
+                details = {detailForm}
+                setForm={setPersonalForm}
             />
         )    
         case 3:
         return(
             <Confirm 
+                personalData={detailForm}
+                details={personalForm}
                 nextStep={nextStep}
                 prevStep={prevStep}
             />

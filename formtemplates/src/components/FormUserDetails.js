@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
@@ -30,9 +30,11 @@ const useStyles = makeStyles((theme) => ({
         
         const { nextStep, setForm, form } = props;
 
-const setDetails = ({target:{value, name}}) => {
-    setForm({...form, [name]: value});
-}
+
+        const setDetails = ({target:{value, name}}) => {
+            setForm({...form, [name]: value});
+
+        }
 
         const handleSubmit = e => {
             e.preventDefault();
@@ -51,19 +53,13 @@ const setDetails = ({target:{value, name}}) => {
                     Enter User Details
                     </Typography>   
                 </AppBar>
-                <div>
-                    <h2>Hello {form.firstName}</h2>
-                    <h3>Your last name is {form.lastName}.</h3>
-                    <h4>Your email is {form.email}.</h4>
-                    <h5>And we won't tell anyone your password is {form.password}</h5>
-                </div>
                 <form className={classes.root} noValidate autoComplete="off">
                     <div>
                         <TextField
                             name="firstName"
                             type= "text"
                             label= "First Name"
-                            defaultValue={form.firstName || "Enter Your First Name"}
+                            placeholder={form.firstName || "Enter Your First Name"}
                             onChange={setDetails}
                         />
                     </div>

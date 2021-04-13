@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
@@ -27,10 +27,13 @@ const useStyles = makeStyles((theme) => ({
     function FormPersonalDetails(props){
         
         const classes = useStyles();
+
         const {  nextStep, prevStep, form, details, setForm } = props;
+
 
         const setUserDetails = ({target:{value, name}}) => {
             setForm({...form, [name]: value});
+
         }
         
 
@@ -82,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
                             name="bio"
                             type= "text"
                             label= "Bio"
-                            defaultValue={form.bio || "Enter Your Bio"}
+                            placeholder={form.bio || "Enter Your Bio"}
                             onChange={setUserDetails}
                             
                         />

@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div className="App">
-      <Header data={resumeData.main} />
+      {/* <Header data={resumeData.main} /> */}
       {/* <About data={resumeData.main} /> */}
       {/* <Resume data={resumeData.resume} /> */}
       {/* <Portfolio data={resumeData.portfolio} /> */}

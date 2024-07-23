@@ -79,7 +79,7 @@ function Header() {
             {/* <Typewriter text=""/> */}
           </h1>
           <h3>
-            Based in Huntington Beach. <span>Software Engineer</span>. Experienced in NextJS, Typescript, Node, MongoDB ... - I have the tools to make your vision come true. Let's chat.
+            Based in Huntington Beach. <span>Software Engineer</span>. Experienced in NextJS, Typescript, Node, MongoDB ... - I have the tools to make your vision come true. Let&apos;s chat.
           </h3>
           <hr />
           {/* <ul className="social">{networks}</ul> */}
